@@ -189,13 +189,13 @@ nonamedian &lt;- as.integer(nonamedian)</code></pre>
 <div id="are-there-differences-in-activity-patterns-between-weekdays-and-weekends" class="section level1">
 <h1>Are there differences in activity patterns between weekdays and weekends?</h1>
 <p><br /></p>
-<p>Make a new factor variable in the dataset with imputed missing values, the two levels of which are “weekday” (i.e. Monday-Friday incl.) and “weekend” (i.e. Saturday or Sunday) <br /></p>
+<p>Make a new factor variable in the dataset with imputed missing values, the two levels of which are “weekday” (i.e. Monday-Friday incl.) and “weekend” (i.e. Saturday or Sunday) <br /></p>
 <pre class="r"><code>echo = TRUE
 nonaactivity$day &lt;- ifelse(as.POSIXlt(as.Date(nonaactivity$date))$wday%%6 == 
                                     0, &quot;weekend&quot;, &quot;weekday&quot;)
 nonaactivity$day &lt;- factor(nonaactivity$day, levels = c(&quot;weekday&quot;, &quot;weekend&quot;))</code></pre>
 <p><br /></p>
-<p>A panel plot containing a time series plot (i.e. type = “l”) of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis).</p>
+<p>A panel plot containing a time series plot (i.e. type = “l”) of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis).</p>
 <p><em>To do this involves firstly separating the data into two subsets according to whether the measurements relate to weekdays or weekends, then working out the mean steps per interval in each of these subsets and plotting these separately.</em> <br /><br /></p>
 <pre class="r"><code>echo = TRUE
 library(lattice)
